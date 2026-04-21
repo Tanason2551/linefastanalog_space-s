@@ -28,9 +28,9 @@ void setup(){
 
 
   // หลังจากบรรทัดนี้ จะใช้โค้ด Motion ของคุณได้เหมือนเดิมทั้งหมด
-  // lineFollow_PID_time_Smooth(700,40, 80, 50, 7, 0, 30,70);
-  lineFollow_PID_time_speed(20000,25,5,0,20,0,70);
-  // lineFollow_PID_time_Smooth(500,40, 80, 50, 7, 0, 30,70);
+  // lineFollow_PID_time_Smooth(700,40, 70, 40, 7, 0, 30,70);
+  lineFollow_PID_time_speed(20000,25,7,0,60,3,100);
+  // lineFollow_PID_time_Smooth(400,40, 80, 50, 7, 0, 30,70);
   // lineFollow_PID_time_speed(1500,25,6,0,20,1.5,70);
   // stop_s(25, 7, 0, 30);
   // turn_R_swing_smooth(25);
