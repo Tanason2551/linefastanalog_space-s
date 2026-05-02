@@ -31,8 +31,8 @@ void lineFollow_PID(int RUN_PID_speed , float RUN_PID_KP, float RUN_PID_KI, floa
   integral = integral + errors ;
   derivative = (errors - previous_error) ;
   output = RUN_PID_KP * errors  + RUN_PID_KI * integral + RUN_PID_KD * derivative;
-  int motorL = constrain(RUN_PID_speed + output, -70, 100);
-  int motorR = constrain(RUN_PID_speed - output, -70, 100);
+  int motorL = constrain(RUN_PID_speed + output, -100, 100);
+  int motorR = constrain(RUN_PID_speed - output, -100, 100);
   Motor(motorL,motorR);
   previous_error = errors;
   // Serial.print(motorL);
@@ -88,11 +88,11 @@ void lineFollow_PID_time_Smooth(unsigned long timeoutTime, int min_speed, int ma
   unsigned long currentTime = startTime;
   unsigned long elapsedTime = 0;
 
-  float previous_error = 0;
-  float integral = 0;
-  float derivative = 0;
-  float output = 0;
-  float errors = 0;
+  // float previous_error = 0;
+  // float integral = 0;
+  // float derivative = 0;
+  // float output = 0;
+  // float errors = 0;
 
   float slope_per_ms = accel_slope / 1000.0;
 
@@ -406,7 +406,7 @@ void turn_R_swing_smooth(int turn_speed) {
   // ลูปที่ 2: รอจนกว่าเซนเซอร์ตรงกลางจะสวิงไปเตะเส้นเป้าหมาย
   while (true) {
     A2D();
-    if (digitalVal[7] == 1 || digitalVal[8] == 1) {
+    if (digitalVal[10] == 1 || digitalVal[11] == 1) {
       break; 
     }
   }
@@ -427,7 +427,7 @@ void turn_L_swing_smooth(int turn_speed) {
   // ลูปที่ 2: รอจนกว่าเซนเซอร์ตรงกลางจะสวิงไปเตะเส้นเป้าหมาย
   while (true) {
     A2D();
-    if (digitalVal[7] == 1 || digitalVal[8] == 1) {
+    if (digitalVal[5] == 1 || digitalVal[6] == 1) {
       break; 
     }
   }
